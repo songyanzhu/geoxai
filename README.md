@@ -7,9 +7,7 @@ Includes modules I contribute to:
 <!-- <img src="https://github.com/soonyenju/geoAI/blob/main/geoAI/resources/logo.png" width="400"/> -->
 <img src="https://github.com/songyanzhu/geoxai/blob/main/resources/GeoXAI_logo.png" width="400"/>
 
-
-
-Welcome to geoAI, a practical tutorial series developed for the University of Southampton course:
+Welcome to geoXAI, a practical tutorial series developed for the University of Southampton course:
 *Machine Learning for Geospatial Data Analysis/Science*.
 
 ---
