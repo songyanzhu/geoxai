@@ -1,0 +1,216 @@
+ID,latitude,longitude,elevation,IGBP,Koppen,start,end,IRGA,sonic_anemometer,instrument_height,canopy_height,plant,continent,country,system,tier
+AR-SLu,-33.4648,-66.4598,505,MF,BSh - Arid Steppe hot,2009-01-01 00:00:00,2011-12-31 23:30:00,LI-7500,CSAT-3,9.0,4.5,,South America,Argentina,O,1
+AR-Vir,-28.2395,-56.1886,105,ENF,Cfa - Warm temperate fully humid with hot summer,2009-01-01 00:00:00,2012-12-31 23:30:00,LI-7500,CSAT3,18.0,12.0,,South America,Argentina,O,1
+AT-Neu,47.11667,11.3175,1095,GRA,Dfc - Snow fully humid cool summer,2002-01-01 00:00:00,2012-12-31 23:30:00,LI-6262,R3IA,3.0,0.76,Evergreen Broadleaf Trees,Europe,Austria,C,1
+AU-Ade,-13.0769,131.1178,76,WSA,Aw - Equatorial savannah with dry winter,2007-01-01 00:00:00,2009-12-31 23:30:00,LI-7500,CSAT3,16.5,12.5,Grass,Australia/Oceania,Australia,O,1
+AU-ASM,-22.283,133.249,606,ENF,BSh - Arid Steppe hot,2010-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,11.7,6.5,Shrub,Australia/Oceania,Australia,O,1
+AU-Cpr,-34.0021,140.5891,63,SAV,BSk - Arid Steppe cold,2010-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,20.0,4.0,Shrub,Australia/Oceania,Australia,O,1
+AU-Cum,-33.61518,150.72362,26,EBF,Cfa - Warm temperate fully humid with hot summer,2012-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,29.0,23.0,Evergreen Broadleaf Trees,Australia/Oceania,Australia,O,1
+AU-DaP,-14.0633,131.3181,102,GRA,Aw - Equatorial savannah with dry winter,2007-01-01 00:00:00,2013-12-31 23:30:00,LI-7500,CSAT3,15.0,0.3,Grass,Australia/Oceania,Australia,O,1
+AU-DaS,-14.1593,131.3881,98,SAV,Aw - Equatorial savannah with dry winter,2008-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,23.0,16.4,Grass,Australia/Oceania,Australia,O,1
+AU-Dry,-15.2588,132.3706,177,SAV,Aw - Equatorial savannah with dry winter,2008-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,15.0,12.3,Grass,Australia/Oceania,Australia,O,1
+AU-Emr,-23.8587,148.4746,176,GRA,BSh - Arid Steppe hot,2011-01-01 00:00:00,2013-12-31 23:30:00,LI-7500,CSAT3,6.7,0.4,,Australia/Oceania,Australia,O,1
+AU-Fog,-12.5452,131.3072,25,WET,Aw - Equatorial savannah with dry winter,2006-01-01 00:00:00,2008-12-31 23:30:00,LI-7500,CSAT3,14.5,1.5,Grass,Australia/Oceania,Australia,O,1
+AU-Gin,-31.3764,115.7138,51,WSA,"Csa - Warm temperate with dry, hot summer",2011-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,14.8,7.0,Shrub,Australia/Oceania,Australia,O,1
+AU-GWW,-30.1913,120.6541,448,SAV,BWh - Arid desert hot,2013-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,35.0,18.0,,Australia/Oceania,Australia,O,1
+AU-How,-12.4943,131.1523,41,WSA,Aw - Equatorial savannah with dry winter,2001-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,23.0,15.0,Grass,Australia/Oceania,Australia,O,1
+AU-Lox,-34.4704,140.6551,45,DBF,BSh - Arid Steppe hot,2008-01-01 00:00:00,2009-12-31 23:30:00,LI-7500,CSAT3,10.0,5.5,,Australia/Oceania,Australia,O,1
+AU-RDF,-14.5636,132.4776,187,WSA,Aw - Equatorial savannah with dry winter,2011-01-01 00:00:00,2013-12-31 23:30:00,LI-7500,CSAT3,21.5,16.4,,Australia/Oceania,Australia,O,1
+AU-Rig,-36.6499,145.5759,151,GRA,Cfb - Warm temperate fully humid with warm summer,2011-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,2.5,0.4,Cereal crop,Australia/Oceania,Australia,O,1
+AU-Rob,-17.1175,145.6301,710,EBF,Am - Equatorial monsoon,2014-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,40.0,28.0,,Australia/Oceania,Australia,O,1
+AU-Stp,-17.1507,133.3502,229,GRA,BSh - Arid Steppe hot,2008-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,4.8,0.2,Grass,Australia/Oceania,Australia,O,1
+AU-TTE,-22.287,133.64,552,OSH,BWh - Arid desert hot,2012-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,9.81,4.85,Shrub,Australia/Oceania,Australia,O,1
+AU-Tum,-35.6566,148.1517,932,EBF,Cfb - Warm temperate fully humid with warm summer,2001-01-01 00:00:00,2014-12-31 23:00:00,LI-7500,HS,70.0,40.0,Evergreen Broadleaf Trees,Australia/Oceania,Australia,O,1
+AU-Wac,-37.4259,145.1878,562,EBF,Cfb - Warm temperate fully humid with warm summer,2005-01-01 00:00:00,2008-12-31 23:30:00,LI-7500,CSAT3,115.0,70.0,Evergreen Broadleaf Trees,Australia/Oceania,Australia,O,1
+AU-Whr,-36.6732,145.0294,151,EBF,Cfb - Warm temperate fully humid with warm summer,2011-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,36.0,28.0,Shrub,Australia/Oceania,Australia,O,1
+AU-Wom,-37.4222,144.0944,714,EBF,Cfb - Warm temperate fully humid with warm summer,2010-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,30.0,25.0,Evergreen Broadleaf Trees,Australia/Oceania,Australia,O,1
+AU-Ync,-34.9893,146.2907,125,GRA,BSk - Arid Steppe cold,2012-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,8.0,0.5,Cereal crop,Australia/Oceania,Australia,O,1
+BE-Bra,51.30761,4.51984,15,MF,Cfb - Warm temperate fully humid with warm summer,1996-01-01 00:00:00,2014-12-31 23:30:00,LI-6262,SOLENT 1012R2,41.0,21.0,Deciduous Broadleaf Trees,Europe,Belgium,C,1
+BE-Lon,50.5516,4.74613,165,CRO,Cfb - Warm temperate fully humid with warm summer,2004-01-01 00:00:00,2014-12-31 23:30:00,LI-7000,Solent Research R3,2.7,0.5,Cereal crop,Europe,Belgium,C,1
+BE-Vie,50.30496,5.99808,491,MF,Cfb - Warm temperate fully humid with warm summer,1996-01-01 00:00:00,2014-12-31 23:30:00,LI-6262,SOLENT 1012R2,38.0,35.2,Deciduous Broadleaf Trees,Europe,Belgium,C,1
+BR-Sa1,-2.85667,-54.95889,90,EBF,Am - Equatorial monsoon,2002-01-01 00:00:00,2011-12-31 23:00:00,LI-6262,CSAT3,57.8,41.0,Evergreen Broadleaf Trees,South America,Brazil,C,1
+BR-Sa3,-3.01803,-54.97144,100,EBF,Am - Equatorial monsoon,2000-01-01 00:00:00,2004-12-31 23:30:00,LI-6262,CSAT3,64.0,27.0,Evergreen Broadleaf Trees,South America,Brazil,C,1
+CA-Gro,48.2167,-82.1556,355,MF,Dfb - Snow fully humid warm summer,2003-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,43.3,31.0,Evergreen Needleleaf Trees,North America,Canada,O,1
+CA-Man,55.87962,-98.48081,253,ENF,Dfc - Snow fully humid cool summer,1994-01-01 00:00:00,2008-12-31 23:30:00,LI-6262,SATI/3,29.0,12.0,Evergreen Needleleaf Trees,North America,Canada,C,1
+CA-NS1,55.87917,-98.48389,253,ENF,Dfc - Snow fully humid cool summer,2001-01-01 00:00:00,2005-12-31 23:30:00,LI-7000,CSAT3,24.0,16.0,Evergreen Needleleaf Trees,North America,Canada,C,1
+CA-NS2,55.90583,-98.52472,257,ENF,Dfc - Snow fully humid cool summer,2001-01-01 00:00:00,2005-12-31 23:30:00,LI-7000,CSAT3,20.0,16.0,Evergreen Needleleaf Trees,North America,Canada,C,1
+CA-NS3,55.91167,-98.38222,257,ENF,Dfc - Snow fully humid cool summer,2001-01-01 00:00:00,2005-12-31 23:30:00,LI-7000,CSAT3,10.0,6.0,Evergreen Needleleaf Trees,North America,Canada,C,1
+CA-NS4,55.91437,-98.380645,257,ENF,Dfc - Snow fully humid cool summer,2002-01-01 00:00:00,2005-12-31 23:30:00,LI-7000,CSAT3,10.0,6.0,Evergreen Needleleaf Trees,North America,Canada,C,1
+CA-NS5,55.86306,-98.485,254,ENF,Dfc - Snow fully humid cool summer,2001-01-01 00:00:00,2005-12-31 23:30:00,LI-7000,CSAT3,9.0,5.0,Evergreen Needleleaf Trees,North America,Canada,C,1
+CA-NS6,55.91667,-98.96444,245,OSH,Dfc - Snow fully humid cool summer,2001-01-01 00:00:00,2005-12-31 23:30:00,LI-7000,CSAT3,8.0,4.0,Evergreen Needleleaf Trees,North America,Canada,C,1
+CA-NS7,56.63583,-99.94833,291,OSH,Dfc - Snow fully humid cool summer,2002-01-01 00:00:00,2005-12-31 23:30:00,LI-7000,CSAT3,4.25,0.25,Evergreen Needleleaf Trees,North America,Canada,C,1
+CA-Oas,53.62889,-106.19779,580,DBF,Dfc - Snow fully humid cool summer,1996-01-01 00:00:00,2010-12-31 23:30:00,LI-6262,"SAT, Model R3",39.0,20.1,Deciduous Needleleaf Trees,North America,Canada,C,1
+CA-Obs,53.98717,-105.11779,598,ENF,Dfc - Snow fully humid cool summer,1997-01-01 00:00:00,2010-12-31 23:30:00,LI-6262,"SAT, Model R3",25.0,7.2,Evergreen Needleleaf Trees,North America,Canada,C,1
+CA-Qfo,49.6925,-74.34206,390,ENF,Dfc - Snow fully humid cool summer,2003-01-01 00:00:00,2010-12-31 23:30:00,LI-7000/LI-7500/LI-6262,CSAT3,24.0,13.8,Evergreen Needleleaf Trees,North America,Canada,M,1
+CA-SF1,54.48503,-105.81757,566,ENF,Dfc - Snow fully humid cool summer,2003-01-01 00:00:00,2006-12-31 23:30:00,LI-7500,CSAT3,12.0,6.0,Evergreen Needleleaf Trees,North America,Canada,O,1
+CA-SF2,54.25392,-105.8775,511,ENF,Dfc - Snow fully humid cool summer,2001-01-01 00:00:00,2005-12-31 23:30:00,LI-7500,CSAT3,10.0,4.0,Evergreen Needleleaf Trees,North America,Canada,O,1
+CA-SF3,54.09156,-106.00526,561,OSH,Dfc - Snow fully humid cool summer,2001-01-01 00:00:00,2006-12-31 23:30:00,LI-7500,CSAT3,20.0,1.0,Evergreen Needleleaf Trees,North America,Canada,O,1
+CA-TP1,42.66093611,-80.55951944,197,ENF,Dfb - Snow fully humid warm summer,2002-01-01 00:00:00,2014-12-31 23:30:00,LI-7000,CSAT-3,3.0,2.8,Broadleaf crop,North America,Canada,C,1
+CA-TP2,42.77441944,-80.458775,239,ENF,Dfb - Snow fully humid warm summer,2002-01-01 00:00:00,2007-12-31 23:30:00,LI-7000,CSAT-3,15.0,11.1,Deciduous Broadleaf Trees,North America,Canada,C,1
+CA-TP3,42.70681111,-80.34831389,216,ENF,Dfb - Snow fully humid warm summer,2002-01-01 00:00:00,2014-12-31 23:30:00,LI-7000,CSAT-3,16.0,13.1,Evergreen Needleleaf Trees,North America,Canada,C,1
+CA-TP4,42.710161,-80.357376,219,ENF,Dfb - Snow fully humid warm summer,2002-01-01 00:00:00,2014-12-31 23:30:00,LI-7000,CSAT-3,28.0,21.8,Evergreen Needleleaf Trees,North America,Canada,C,1
+CA-TPD,42.635328,-80.557731,214,DBF,Dfb - Snow fully humid warm summer,2012-01-01 00:00:00,2014-12-31 23:30:00,LI-7200,CSAT3,35.7,25.7,Deciduous Broadleaf Trees,North America,Canada,C,1
+CG-Tch,-4.28917,11.65642,1,SAV,Aw - Equatorial savannah with dry winter,2006-01-01 00:00:00,2009-12-31 23:30:00,LI-7000, Young 81000V,3.8,1.0,Grass,Africa,Congo - Kinshasa,C,1
+CH-Cha,47.21022,8.41044,394,GRA,Cfb - Warm temperate fully humid with warm summer,2005-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,Solent R3,2.0,0.5,Grass,Europe,Switzerland,O,1
+CH-Dav,46.81533,9.85591,1762,ENF,ET - Polar tundra,1997-01-01 00:00:00,2014-12-31 23:30:00,LI-6262(1997to2005)/LI-7500,Solent R2(1997-2006)/R3,35.0,25.0,Evergreen Needleleaf Trees,Europe,Switzerland,M,1
+CH-Fru,47.11583,8.53778,975,GRA,Cfb - Warm temperate fully humid with warm summer,2005-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,Solent R3,2.0,0.5,Grass,Europe,Switzerland,O,1
+CH-Lae,47.47808,8.365,645,MF,Cfb - Warm temperate fully humid with warm summer,2004-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,Gill solent HS,47.0,30.6,Deciduous Broadleaf Trees,Europe,Switzerland,O,1
+CH-Oe1,47.28583,7.73194,451,GRA,Cfb - Warm temperate fully humid with warm summer,2002-01-01 00:00:00,2008-12-31 23:30:00,LI-7500,models R2 and HS,1.2,0.5,Cereal crop,Europe,Switzerland,O,1
+CH-Oe2,47.28631,7.73433,450,CRO,Cfb - Warm temperate fully humid with warm summer,2004-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,Solent R3-50,1.6,0.3,Cereal crop,Europe,Switzerland,O,1
+CN-Cha,42.4025,128.0958,754,MF,Dwb - Snow dry winter warm summer,2003-01-01 00:00:00,2005-12-31 23:30:00,LI-7500,CSAT3,41.5,26.0,Deciduous Broadleaf Trees,Asia,China,O,1
+CN-Cng,44.5934,123.5092,142,GRA,Dwa - Cold dry winter hot summer,2007-01-01 00:00:00,2010-12-31 23:30:00,LI-7500,CSAT3,2.0,0.8,,Asia,China,O,1
+CN-Dan,30.4978,91.0664,4751,GRA,ET - Polar tundra,2004-01-01 00:00:00,2005-12-31 23:30:00,LI-7500,CSAT3,2.1,0.1,Grass,Asia,China,O,1
+CN-Din,23.1733,112.5361,261,EBF,Cfa - Warm temperate fully humid with hot summer,2003-01-01 00:00:00,2005-12-31 23:30:00,LI-7500,CSAT3,27.0,17.0,Evergreen Broadleaf Trees,Asia,China,O,1
+CN-Du2,42.0467,116.2836,1331,GRA,Dwb - Snow dry winter warm summer,2006-01-01 00:00:00,2008-12-31 23:30:00,LI-7500,CSAT3,4.0,0.45,Grass,Asia,China,O,1
+CN-Du3,42.0551,116.2809,1312,GRA,Dwb - Snow dry winter warm summer,2009-01-01 00:00:00,2010-12-31 23:30:00,LI-7500,CSAT3,3.0,0.2,Grass,Asia,China,O,1
+CN-Ha2,37.6086,101.3269,3200,WET,ET - Polar tundra,2003-01-01 00:00:00,2005-12-31 23:30:00,LI-7500,CSAT3,2.5,2.2,Grass,Asia,China,O,1
+CN-HaM,37.37,101.18,3995,GRA,Dwc - Cold dry winter cold summer,2002-01-01 00:00:00,2004-12-31 23:30:00,LI-7500,CSAT3,2.2,0.2,,Asia,China,O,1
+CN-Qia,26.7414,115.0581,64,ENF,Cfa - Warm temperate fully humid with hot summer,2003-01-01 00:00:00,2005-12-31 23:30:00,LI-7500,CSAT3,23.0,12.0,Shrub,Asia,China,O,1
+CN-Sw2,41.7902,111.8971,1444,GRA,BSk - Arid Steppe cold,2010-01-01 00:00:00,2012-12-31 23:30:00,LI-7500,CSAT3,2.0,0.5,,Asia,China,O,1
+CZ-BK1,49.50213,18.53686,862,ENF,Dfb - Snow fully humid warm summer,2004-01-01 00:00:00,2014-12-31 23:30:00,LI-6250,"R3-100(unitl 2011), HS-50",17.0,12.0,Evergreen Needleleaf Trees,Europe,Czech Republic,C,1
+CZ-BK2,49.49443,18.54285,837,GRA,Dfb - Snow fully humid warm summer,2004-01-01 00:00:00,2012-12-31 23:30:00,LI-7000,R3,3.0,1.0,Evergreen Needleleaf Trees,Europe,Czech Republic,C,1
+CZ-wet,49.02465,14.77035,425,WET,Cfb - Warm temperate fully humid with warm summer,2006-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,R3,2.7,0.1,Cereal crop,Europe,Czech Republic,O,1
+DE-Akm,53.86617,13.68342,4,WET,Cfb - Warm temperate fully humid with warm summer,2009-01-01 00:00:00,2014-12-31 23:30:00,LI-7000,CSAT-3,9.5,3.0,Urban and built up,Europe,Germany,C,1
+DE-Geb,51.1001,10.9143,157,CRO,Cfb - Warm temperate fully humid with warm summer,2001-01-01 00:00:00,2014-12-31 23:30:00,LI-6262/LI-7000(since 2002),R3,6.0,1.0,Cereal crop,Europe,Germany,C,1
+DE-Gri,50.95004,13.51259,377,GRA,Cfb - Warm temperate fully humid with warm summer,2004-01-01 00:00:00,2014-12-31 23:30:00,LI-7500(2002-2005)/LI-6262(2005)/LI-7000,METEK(2002-2007)/Solent R3,3.0,1.0,Deciduous Broadleaf Trees,Europe,Germany,M,1
+DE-Hai,51.07917,10.453,433,DBF,Cfb - Warm temperate fully humid with warm summer,2000-01-01 00:00:00,2012-12-31 23:30:00,LI-6262,Gill Solent R3,43.5,33.0,Deciduous Broadleaf Trees,Europe,Germany,C,1
+DE-Kli,50.89306,13.52238,468,CRO,Cfb - Warm temperate fully humid with warm summer,2004-01-01 00:00:00,2014-12-31 23:30:00,LI-7000,Solent R3,3.5,1.0,Cereal crop,Europe,Germany,C,1
+DE-Lkb,49.09962,13.30467,1305,ENF,Cfb - Warm temperate fully humid with warm summer,2009-01-01 00:00:00,2013-12-31 23:30:00,LI-7500,CSAT3,9.0,18.0,Evergreen Needleleaf Trees,Europe,Germany,O,1
+DE-Lnf,51.32822,10.3678,456,DBF,Cfb - Warm temperate fully humid with warm summer,2002-01-01 00:00:00,2012-12-31 23:30:00,LI-6262,R3,44.0,34.0,Deciduous Broadleaf Trees,Europe,Germany,C,1
+DE-Obe,50.78666,13.72129,695,ENF,Cfb - Warm temperate fully humid with warm summer,2008-01-01 00:00:00,2014-12-31 23:30:00,LI-7000,Metek,42.0,13.5,Evergreen Needleleaf Trees,Europe,Germany,C,1
+DE-RuR,50.62191,6.30413,515,GRA,Cfb - Warm temperate fully humid with warm summer,2011-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,2.6,0.1,Grass,Europe,Germany,O,1
+DE-RuS,50.86591,6.44717,101,CRO,Cfb - Warm temperate fully humid with warm summer,2011-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,2.2,2.0,Urban and built up,Europe,Germany,O,1
+DE-Seh,50.87062,6.44965,103,CRO,Cfb - Warm temperate fully humid with warm summer,2007-01-01 00:00:00,2010-12-31 23:30:00,LI-7500,CSAT3,3.0,0.5,Cereal crop,Europe,Germany,O,1
+DE-SfN,47.80639,11.3275,595,WET,Cfb - Warm temperate fully humid with warm summer,2012-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,6.0,2.0,Evergreen Needleleaf Trees,Europe,Germany,O,1
+DE-Spw,51.89225,14.03369,62,WET,Cfb - Warm temperate fully humid with warm summer,2010-01-01 00:00:00,2014-12-31 23:30:00,LI-7000,CSAT-3,39.0,10.0,Deciduous Broadleaf Trees,Europe,Germany,C,1
+DE-Tha,50.96235,13.56516,320,ENF,Cfb - Warm temperate fully humid with warm summer,1996-01-01 00:00:00,2014-12-31 23:30:00,LI-6262(1996-2006)/LI-7000,Gill Solent R2(1996-2006)/Gill Solent R3,42.0,28.0,Evergreen Needleleaf Trees,Europe,Germany,C,1
+DE-Zrk,53.87594,12.88901,1,WET,Cfb - Warm temperate fully humid with warm summer,2013-01-01 00:00:00,2014-12-31 23:30:00,LI-7200,HS-50,2.63,0.1,Deciduous Broadleaf Trees,Europe,Germany,C,1
+DK-Eng,55.69053,12.19175,18,GRA,Cfb - Warm temperate fully humid with warm summer,2005-01-01 00:00:00,2008-12-31 23:30:00,LI-7500,Metek,2.0,1.0,Cereal crop,Europe,Denmark,O,1
+DK-Fou,56.4842,9.58722,55,CRO,Cfb - Warm temperate fully humid with warm summer,2005-01-01 00:00:00,2005-12-31 23:30:00,LI-7500,Metek,3.5,2.0,Cereal crop,Europe,Denmark,O,1
+DK-NuF,64.13083,-51.38611,57,WET,ET - Polar tundra,2008-01-01 00:00:00,2014-12-31 23:30:00,LI-7000,R3-50,2.1,1.0,Shrub,Europe,Denmark,C,1
+DK-Sor,55.48587,11.64464,35,DBF,Cfb - Warm temperate fully humid with warm summer,1996-01-01 00:00:00,2014-12-31 23:30:00,LI-6262/LI-7000,Solent 1012 R2,43.0,25.8,Deciduous Broadleaf Trees,Europe,Denmark,C,1
+DK-ZaF,74.48143,-20.55452,65,WET,ET - Polar tundra,2008-01-01 00:00:00,2011-12-31 23:30:00,LI-6262,Gill Solent,3.5,0.2,Shrub,Europe,Denmark,C,1
+DK-ZaH,74.47328,-20.5503,48,GRA,ET - Polar tundra,2000-01-01 00:00:00,2014-12-31 23:30:00,LI-6262(2000-2007)/LI-7000,R2(2000-2007)/R3,3.0,1.0,Shrub,Europe,Denmark,C,1
+ES-Amo,36.83361,-2.25232,53,OSH,BSk - Arid Steppe cold,2007-01-01 00:00:00,2012-12-31 23:30:00,LI-7500,CSAT-3,3.05,0.3,Shrub,Europe,Spain,O,1
+ES-LgS,37.09794,-2.96583,2261,OSH,"Csa - Warm temperate with dry, hot summer",2007-01-01 00:00:00,2009-12-31 23:30:00,LI-7500,METEK,2.25,0.2,Evergreen Needleleaf Trees,Europe,Spain,O,1
+ES-LJu,36.92659,-2.75212,1622,OSH,"Csa - Warm temperate with dry, hot summer",2004-01-01 00:00:00,2013-12-31 23:30:00,LI-7500,CSAT-3,2.5,0.5,Shrub,Europe,Spain,O,1
+ES-Ln2,36.9695,-3.47582,2252,OSH,"Csa - Warm temperate with dry, hot summer",2009-01-01 00:00:00,2009-12-31 23:30:00,LI-7500,CSAT-3,2.0,1.0,Shrub,Europe,Spain,O,1
+FI-Hyy,61.84741,24.29477,185,ENF,Dfc - Snow fully humid cool summer,1996-01-01 00:00:00,2014-12-31 23:30:00,LI-6262,Solent 1012R2,23.3,14.0,Evergreen Needleleaf Trees,Europe,Finland,C,1
+FI-Jok,60.8986,23.51345,118,CRO,Dfc - Snow fully humid cool summer,2000-01-01 00:00:00,2003-12-31 23:30:00,LI-6262,SA-ATI,3.0,0.2,Broadleaf crop,Europe,Finland,C,1
+FI-Let,60.64183,23.95952,128,ENF,Dfb - Snow fully humid warm summer,2009-01-01 00:00:00,2012-12-31 23:30:00,LI-7000,USA-1/Metek,25.5,10.03,Evergreen Needleleaf Trees,Europe,Finland,C,1
+FI-Lom,67.99724,24.20918,270,WET,Dfc - Snow fully humid cool summer,2007-01-01 00:00:00,2009-12-31 23:30:00,LI-7000,USA-1 (METEK),3.0,0.4,Grass,Europe,Finland,C,1
+FI-Sod,67.36239,26.63859,188,ENF,Dfc - Snow fully humid cool summer,2001-01-01 00:00:00,2014-12-31 23:30:00,LI-6262,SWS 211,23.0,12.7,Evergreen Needleleaf Trees,Europe,Finland,C,1
+FR-Fon,48.47636,2.7801,94,DBF,Cfb - Warm temperate fully humid with warm summer,2005-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,Solent R3,38.0,29.0,Deciduous Broadleaf Trees,Europe,France,O,1
+FR-Gri,48.84422,1.95191,117,CRO,Cfb - Warm temperate fully humid with warm summer,2004-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,R3-50,3.17,2.0,Cereal crop,Europe,France,O,1
+FR-LBr,44.71711,-0.7693,62,ENF,Cfb - Warm temperate fully humid with warm summer,1996-01-01 00:00:00,2008-12-31 23:30:00,LI-6262,Solent R2,25.0,18.0,Shrub,Europe,France,C,1
+FR-Pue,43.7413,3.5957,211,EBF,"Csa - Warm temperate with dry, hot summer",2000-01-01 00:00:00,2014-12-31 23:30:00,LI 6262,Solent R2(1998-1999)/R3(2000-2001),11.0,6.0,Evergreen Needleleaf Trees,Europe,France,C,1
+GF-Guy,5.27877,-52.92486,29,EBF,"Af - Equatorial rainforest, fully humid",2004-01-01 00:00:00,2014-12-31 23:30:00,LI-7500(LI-7000 added in 2005),R3-50,52.0,35.0,Evergreen Broadleaf Trees,South America,French Guiana,M,1
+GH-Ank,5.26854,-2.69421,76,EBF,Am - Equatorial monsoon,2011-01-01 00:00:00,2014-12-31 23:30:00,LI-6262,Windmaster Pro,65.0,30.0,Evergreen Broadleaf Trees,Africa,Ghana,C,1
+IT-BCi,40.52375,14.95744,13,CRO,"Csa - Warm temperate with dry, hot summer",2004-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,Solent R3,3.8,0.3,Cereal crop,Europe,Italy,O,1
+IT-CA1,42.38041,12.02656,204,DBF,"Csa - Warm temperate with dry, hot summer",2011-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,5.0,1.0,Cereal crop,Europe,Italy,O,1
+IT-CA2,42.37722,12.02604,202,CRO,"Csa - Warm temperate with dry, hot summer",2011-01-01 00:00:00,2014-12-31 23:30:00,LI-7500A,USA-1 (METEK),3.0,0.5,Cereal crop,Europe,Italy,O,1
+IT-CA3,42.38,12.0222,199,DBF,"Csa - Warm temperate with dry, hot summer",2011-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,5.0,1.0,Cereal crop,Europe,Italy,O,1
+IT-Col,41.84936,13.58814,1645,DBF,Cfa - Warm temperate fully humid with hot summer,1996-01-01 00:00:00,2014-12-31 23:30:00,LI-6262,Gill,25.2,20.2,Deciduous Broadleaf Trees,Europe,Italy,C,1
+IT-Cp2,41.70427,12.35729,16,EBF,"Csa - Warm temperate with dry, hot summer",2012-01-01 00:00:00,2014-12-31 23:30:00,LI-7200,Windmaster,15.0,12.0,Evergreen Needleleaf Trees,Europe,Italy,C,1
+IT-Cpz,41.70525,12.37611,9,EBF,"Csa - Warm temperate with dry, hot summer",1997-01-01 00:00:00,2009-12-31 23:30:00,LI-6262,R2,15.0,12.0,Evergreen Needleleaf Trees,Europe,Italy,C,1
+IT-Isp,45.81264,8.63358,220,DBF,Cfb - Warm temperate fully humid with warm summer,2013-01-01 00:00:00,2014-12-31 23:30:00,LI-7200,HS-100,36.0,24.0,Deciduous Broadleaf Trees,Europe,Italy,C,1
+IT-La2,45.9542,11.2853,1370,ENF,Cfb - Warm temperate fully humid with warm summer,2000-01-01 00:00:00,2002-12-31 23:30:00,LI-7500,CSAT3,36.0,34.5,Evergreen Needleleaf Trees,Europe,Italy,O,1
+IT-Lav,45.9562,11.28132,1305,ENF,Cfb - Warm temperate fully humid with warm summer,2003-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,Gill,28.0,28.0,Evergreen Needleleaf Trees,Europe,Italy,O,1
+IT-MBo,46.01468,11.04583,1547,GRA,Dfb - Snow fully humid warm summer,2003-01-01 00:00:00,2013-12-31 23:30:00,LI-7500,R3,2.5,0.3,Grass,Europe,Italy,O,1
+IT-Noe,40.60618,8.15117,25,CSH,"Csa - Warm temperate with dry, hot summer",2004-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,3.5,1.75,Shrub,Europe,Italy,O,1
+IT-PT1,45.20087,9.06104,70,DBF,Cfa - Warm temperate fully humid with hot summer,2002-01-01 00:00:00,2004-12-31 23:30:00,LI-6262,Metek,33.0,26.6,Cereal crop,Europe,Italy,C,1
+IT-Ren,46.58686,11.43369,1794,ENF,Dfc - Snow fully humid cool summer,1998-01-01 00:00:00,2013-12-31 23:30:00,LI-7500,"1000V, RM-Young",32.0,29.0,Evergreen Needleleaf Trees,Europe,Italy,O,1
+IT-Ro1,42.40812,11.93001,153,DBF,"Csa - Warm temperate with dry, hot summer",2000-01-01 00:00:00,2008-12-31 23:30:00,LI-6262, METEK USA1,18.6,17.0,Deciduous Broadleaf Trees,Europe,Italy,C,1
+IT-Ro2,42.39026,11.92093,165,DBF,"Csa - Warm temperate with dry, hot summer",2002-01-01 00:00:00,2012-12-31 23:30:00,LI-6262,Gill,18.6,17.0,Cereal crop,Europe,Italy,C,1
+IT-SR2,43.73203,10.29095,2,ENF,"Csa - Warm temperate with dry, hot summer",2013-01-01 00:00:00,2014-12-31 23:30:00,LI-7200,Gill HS-50,23.5,18.0,Evergreen Needleleaf Trees,Europe,Italy,C,1
+IT-SRo,43.72786,10.28444,2,ENF,"Csa - Warm temperate with dry, hot summer",1999-01-01 00:00:00,2012-12-31 23:30:00,LI-6262,Gill-R2,23.5,18.0,Water,Europe,Italy,C,1
+IT-Tor,45.84444,7.57806,2165,GRA,Dfc - Snow fully humid cool summer,2008-01-01 00:00:00,2014-12-31 23:30:00,LI-7500 ,CSAT3,2.5,0.5,Evergreen Needleleaf Trees,Europe,Italy,O,1
+JP-MBF,44.3869,142.3186,572,DBF,Dfb - Snow fully humid warm summer,2003-01-01 00:00:00,2005-12-31 23:30:00,LI-7500,Solent R3-50,30.0,25.0,Deciduous Broadleaf Trees,Asia,Japan,O,1
+JP-SMF,35.2617,137.0788,215,MF,Cfa - Warm temperate fully humid with hot summer,2002-01-01 00:00:00,2006-12-31 23:30:00,LI-7500,DAT-540,18.5,8.9,Cereal crop,Asia,Japan,O,1
+MY-PSO,2.973,102.3062,145,EBF,"Af - Equatorial rainforest, fully humid",2003-01-01 00:00:00,2009-12-31 23:30:00,LI-7500,?,52.0,35.0,Evergreen Broadleaf Trees,Asia,Malaysia,O,1
+NL-Hor,52.24035,5.0713,1,GRA,Cfb - Warm temperate fully humid with warm summer,2004-01-01 00:00:00,2011-12-31 23:30:00,LI-7500,Gill,4.3,0.5,Deciduous Broadleaf Trees,Europe,Netherlands,O,1
+NL-Loo,52.16658,5.74356,25,ENF,Cfb - Warm temperate fully humid with warm summer,1996-01-01 00:00:00,2014-12-31 23:30:00,LI-6262,"Solent
+1012R2",25.99,15.5,Evergreen Needleleaf Trees,Europe,Netherlands,C,1
+NO-Adv,78.186,15.923,17,WET,ET - Polar tundra,2011-01-01 00:00:00,2014-12-31 23:30:00,LI-7200,Metek,2.8,0.1,Shrub,Europe,Norway,C,1
+NO-Blv,78.92163,11.83109,25,SNO,ET - Polar tundra,2008-01-01 00:00:00,2009-12-31 23:00:00, LI-7500,CSAT3,2.9,0.1,Snow and Ice,Europe,Norway,O,1
+PA-SPn,9.31814,-79.6346,80,DBF,Am - Equatorial monsoon,2007-01-01 00:00:00,2009-12-31 23:30:00,LI-7500,CSAT3,15.0,10.0,Broadleaf crop,South America,Panama,O,1
+PA-SPs,9.31378,-79.63143,76,GRA,Am - Equatorial monsoon,2007-01-01 00:00:00,2009-12-31 23:30:00,LI-7500,CSAT3,3.0,0.09,Grass,South America,Panama,O,1
+RU-Che,68.61304,161.34143,3,WET,Dfc - Snow fully humid cool summer,2002-01-01 00:00:00,2005-12-31 23:30:00,LI-6262,Solent R3,5.3,1.0,Shrub,Asia,Russia,C,1
+RU-Cok,70.82914,147.49428,16,OSH,Dfc - Snow fully humid cool summer,2003-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,R3-50,4.7,0.3,Shrub,Asia,Russia,O,1
+RU-Fyo,56.46153,32.92208,273,ENF,Dfb - Snow fully humid warm summer,1998-01-01 00:00:00,2014-12-31 23:30:00,LI-6262,Solent R3,42.8,34.8,Evergreen Needleleaf Trees,Asia,Russia,C,1
+RU-Ha1,54.72517,90.00215,449,GRA,Dfc - Snow fully humid cool summer,2002-01-01 00:00:00,2004-12-31 23:30:00,LI-7500,1012R3,4.5,0.5,Grass,Asia,Russia,O,1
+RU-Sam,72.3738,126.4958,16,GRA,Dfd - Snow fully humid extremely continental,2002-01-01 00:00:00,2014-12-31 23:30:00,LI-7000,Solent R3,3.65,0.1,Shrub,Asia,Russia,C,2
+RU-SkP,62.255,129.168,208,DNF,Dfd - Snow fully humid extremely continental,2012-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,R3-50,32.0,13.0,Deciduous Needleleaf Trees,Asia,Russia,O,2
+RU-Tks,71.59427,128.88782,19,GRA,Dfd - Snow fully humid extremely continental,2010-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,R3-50,9.0,0.1,Shrub,Asia,Russia,O,2
+RU-Vrk,67.05468,62.94047,100,CSH,Dfc - Snow fully humid cool summer,2008-01-01 00:00:00,2008-12-31 23:30:00,LI-7500,R3-50,2.75,0.1,Grass,Asia,Russia,O,2
+SD-Dem,13.2829,30.4783,608,SAV,BWh - Arid desert hot,2005-01-01 00:00:00,2009-12-31 23:30:00,LI-7500,Gill R3,9.0,4.0,Grass,Africa,Sudan,O,1
+SE-St1,68.35415,19.05033,347,WET,ET - Polar tundra,2012-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,R3-50,2.5,0.1,Shrub,Europe,Sweden,O,2
+SN-Dhr,15.40278,-15.43222,43,SAV,BWh - Arid desert hot,2010-01-01 00:00:00,2013-12-31 23:30:00,LI-7500,R3 ,9.0,5.2,Grass,Africa,Senegal,O,1
+US-AR1,36.4267,-99.42,614,GRA,Cfa - Warm temperate fully humid with hot summer,2009-01-01 00:00:00,2012-12-31 23:30:00,LI-7500,Windmaster,4.0,1.0,Grass,North America,United States,O,1
+US-AR2,36.6358,-99.5975,646,GRA,Cfa - Warm temperate fully humid with hot summer,2009-01-01 00:00:00,2012-12-31 23:30:00,LI-7500,Windmaster,2.95,1.0,Grass,North America,United States,O,1
+US-ARb,35.5497,-98.0402,421,GRA,Cfa - Warm temperate fully humid with hot summer,2005-01-01 00:00:00,2006-12-31 23:30:00,LI-7500,Windmaster,3.45,0.5,Cereal crop,North America,United States,O,1
+US-ARc,35.54649,-98.04,424,GRA,Cfa - Warm temperate fully humid with hot summer,2005-01-01 00:00:00,2006-12-31 23:30:00,LI-7500,Windmaster,4.05,0.5,Grass,North America,United States,O,1
+US-ARM,36.6058,-97.4888,312,CRO,Cfa - Warm temperate fully humid with hot summer,2003-01-01 00:00:00,2012-12-31 23:30:00,LI-7500,Windmaster,4.28,0.5,Cereal crop,North America,United States,O,1
+US-Atq,70.4696,-157.4089,15,WET,ET - Polar tundra,2003-01-01 00:00:00,2008-12-31 23:30:00,LI-7500,R3,2.5,0.2,Grass,North America,United States,O,1
+US-Blo,38.8953,-120.6328,1280,ENF,"Csb - Warm temperate with dry, warm summer",1997-01-01 00:00:00,2007-12-31 23:30:00,LI-6262,ATI,9.0,4.0,Evergreen Needleleaf Trees,North America,United States,C,1
+US-Cop,38.09,-109.39,1520,GRA,BSk - Arid Steppe cold,2001-01-01 00:00:00,2007-12-31 23:00:00,LI‐7500/LI-7000,CSAT3,1.85,0.1,Grass,North America,United States,M,1
+US-CRT,41.628495,-83.347086,179,CRO,Dfa - Snow with fully humid hot summer,2011-01-01 00:00:00,2013-12-31 23:30:00,LI-7500,CSAT-3,2.0,1.0,Broadleaf crop,North America,United States,O,1
+US-GBT,41.36579,-106.2397,3190,ENF,Dfc - Cold/Without_Dry_Season/Cold_Summer,1999-01-01 00:00:00,2006-12-31 23:30:00,LI-6262,ATI,27.12,17.0,(null),North America,United States,C,1
+US-GLE,41.36653,-106.2399,3150,ENF,Dfb - Snow fully humid warm summer,2004-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,SATI/3Vx,22.65,18.0,Evergreen Needleleaf Trees,North America,United States,O,1
+US-Goo,34.2547,-89.8735,90,GRA,Cfa - Warm temperate fully humid with hot summer,2002-01-01 00:00:00,2006-12-31 23:30:00,"(Open-Path,
+ATDD/NOAA","81,001V, R. M.
+Young",4.0,0.3,Deciduous Broadleaf Trees,North America,United States,O,1
+US-Ha1,42.53775556,-72.17147778,340,DBF,Dfb - Snow fully humid warm summer,1991-01-01 00:00:00,2012-12-31 23:00:00,LI-6252,"Applied Technologies, Boulder CO",30.0,24.0,Deciduous Broadleaf Trees,North America,United States,C,1
+US-IB2,41.84062,-88.24103,228,GRA,Dfa - Snow with fully humid hot summer,2004-01-01 00:00:00,2011-12-31 23:30:00,LI-7500,R3,3.76,0.5,Broadleaf crop,North America,United States,O,1
+US-Ivo,68.4865,-155.7503,557,WET,ET - Polar tundra,2004-01-01 00:00:00,2007-12-31 23:30:00,LI-7200,Metek,3.8,0.5,Shrub,North America,United States,C,1
+US-KS1,28.4583,-80.6709,1,ENF,Cfa - Warm temperate fully humid with hot summer,2002-01-01 00:00:00,2002-12-31 23:30:00,LI-6262,R3,18.0,13.0,Deciduous Broadleaf Trees,North America,United States,C,1
+US-KS2,28.6086,-80.6715,1,CSH,Cfa - Warm temperate fully humid with hot summer,2003-01-01 00:00:00,2006-12-31 23:30:00,LI-6262,R3,3.5,1.0,Shrub,North America,United States,C,1
+US-Lin,36.3566,-119.8423,131,CRO,BWh - Arid desert hot,2009-01-01 00:00:00,2010-12-31 23:30:00,LI-6262,Applied Technologies,9.18,4.0,,North America,United States,C,1
+US-Los,46.0827,-89.9792,485,WET,Dfb - Snow fully humid warm summer,2000-01-01 00:00:00,2014-12-31 18:00:00,LI-6262,CSAT-3A,10.2,2.0,Deciduous Broadleaf Trees,North America,United States,C,1
+US-LWW,34.9604,-97.9789,365,GRA,Cfa - Warm temperate fully humid with hot summer,1997-01-01 00:00:00,1998-12-31 23:30:00,open-path,R2,3.0,0.6,Grass,North America,United States,O,1
+US-Me1,44.5794,-121.5,885,ENF,"Csb - Warm temperate with dry, warm summer",2004-01-01 00:00:00,2005-12-31 23:30:00,LI-7500,CSAT3,10.0,6.0,Cereal crop,North America,United States,O,1
+US-Me2,44.4523,-121.5574,1237,ENF,"Csb - Warm temperate with dry, warm summer",2002-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,33.0,13.0,Evergreen Needleleaf Trees,North America,United States,O,1
+US-Me3,44.3154,-121.6078,1010,ENF,"Csb - Warm temperate with dry, warm summer",2004-01-01 00:00:00,2009-12-31 23:30:00,LI-7500,CSAT3,12.0,3.0,Evergreen Needleleaf Trees,North America,United States,O,1
+US-Me4,44.4992,-121.6224,915,ENF,"Csb - Warm temperate with dry, warm summer",1996-01-01 00:00:00,2000-12-31 23:30:00,LI-7500,CSAT3,47.0,33.0,Evergreen Needleleaf Trees,North America,United States,O,1
+US-Me5,44.43719,-121.56676,1192,ENF,"Csb - Warm temperate with dry, warm summer",2000-01-01 00:00:00,2002-12-31 23:30:00,LI-7500,CSAT3,12.0,4.0,Evergreen Needleleaf Trees,North America,United States,O,1
+US-Me6,44.3232842,-121.6078,1000,ENF,"Csb - Warm temperate with dry, warm summer",2010-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT3,12.0,5.2,Shrub,North America,United States,O,1
+US-MMS,39.32315,-86.413139,275,DBF,Cfa - Warm temperate fully humid with hot summer,1999-01-01 00:00:00,2014-12-31 23:00:00,LI-7000,CSAT-3,46.0,27.0,Deciduous Broadleaf Trees,North America,United States,C,1
+US-Myb,38.049782,-121.76506,-4,WET,"Csb - Warm temperate with dry, warm summer",2010-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,Windmaster Pro,5.44,0.5,Grass,North America,United States,O,1
+US-Ne1,41.165056,-96.476638,361,CRO,Dfa - Snow with fully humid hot summer,2001-01-01 00:00:00,2013-12-31 23:00:00,LI-7500,R3,6.2,1.0,Broadleaf crop,North America,United States,O,1
+US-Ne2,41.164871,-96.4701,362,CRO,Dfa - Snow with fully humid hot summer,2001-01-01 00:00:00,2013-12-31 23:00:00,LI-7500,R3,6.2,1.0,Broadleaf crop,North America,United States,O,1
+US-Ne3,41.179667,-96.439646,363,CRO,Dfa - Snow with fully humid hot summer,2001-01-01 00:00:00,2013-12-31 23:00:00,LI-7500,R4,6.2,1.0,Broadleaf crop,North America,United States,O,1
+US-NR1,40.0329,-105.5464,3023,ENF,Dfc - Snow fully humid cool summer,1998-01-01 00:00:00,2014-12-31 23:30:00,LI-6262,CSAT-3,21.5,11.4,Evergreen Needleleaf Trees,North America,United States,C,1
+US-Oho,41.5545,-83.8438,200,DBF,Dfa - Snow with fully humid hot summer,2004-01-01 00:00:00,2013-12-31 23:30:00,LI-7500,CSAT-3,32.0,20.0,Deciduous Broadleaf Trees,North America,United States,O,1
+US-ORv,40.0201,-83.0183,219,WET,Dfa - Snow with fully humid hot summer,2011-01-01 00:00:00,2011-12-31 23:30:00,LI-7500,CSAT-3,9.6,0.5,Urban and built up,North America,United States,O,1
+US-PFa,45.94587778,-90.27230417,470,MF,Dfb - Snow fully humid warm summer,1995-01-01 00:00:00,2014-12-31 18:00:00,LI-6262,CSAT-3,36.0,26.0,Deciduous Broadleaf Trees,North America,United States,C,1
+US-Prr,65.12367,-147.48756,210,ENF,Dfc - Snow fully humid cool summer,2010-01-01 00:00:00,2014-12-31 23:30:00,LI-7200,Windmaster Pro,11.0,2.4,Evergreen Needleleaf Trees,North America,United States,C,1
+US-SRC,31.9083,-110.8395,984,MF,BSk - Arid Steppe cold,2008-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT-3,3.75,1.7,Shrub,North America,United States,O,1
+US-SRG,31.789379,-110.827675,1291,GRA,BSk - Arid Steppe cold,2008-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT-3,3.25,2.5,Shrub,North America,United States,O,1
+US-SRM,31.8214,-110.8661,1118,WSA,BSk - Arid Steppe cold,2004-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT-3,7.82,2.5,Shrub,North America,United States,O,1
+US-Sta,41.3966,-106.8024,2069,OSH,Dfb - Snow fully humid warm summer,2005-01-01 00:00:00,2009-12-31 23:30:00,LI-7500,CSAT,3.0,1.0,Grass,North America,United States,O,1
+US-Syv,46.242,-89.3477,539,MF,Dfb - Snow fully humid warm summer,2001-01-01 00:00:00,2014-12-31 23:30:00,LI-6262,CSAT-3,36.0,27.0,Deciduous Broadleaf Trees,North America,United States,C,1
+US-Ton,38.4316,-120.96598,170,WSA,"Csa - Warm temperate with dry, hot summer",2001-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,Windmaster Pro,23.5,9.41,Shrub,North America,United States,O,1
+US-Tw1,38.1074,-121.6469,-5,WET,"Csa - Warm temperate with dry, hot summer",2012-01-01 00:00:00,2014-12-31 19:30:00,LI-7500A,Windmaster,4.64,0.1,Cereal crop,North America,United States,O,1
+US-Tw2,38.1047,-121.6433,-5,CRO,"Csa - Warm temperate with dry, hot summer",2012-01-01 00:00:00,2013-12-31 23:30:00,LI-7500A,Windmaster,5.15,2.0,Cereal crop,North America,United States,O,1
+US-Tw3,38.1159,-121.6467,-9,CRO,"Csa - Warm temperate with dry, hot summer",2013-01-01 00:00:00,2014-12-31 23:30:00,LI-7500A,Windmaster,2.8,0.5,Broadleaf crop,North America,United States,O,1
+US-Tw4,38.10298,-121.6414,-5,WET,"Csa - Warm temperate with dry, hot summer",2013-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,Windmaster Pro,5.36,0.1,Cereal crop,North America,United States,O,1
+US-Twt,38.1087204,-121.6531,-7,CRO,"Csa - Warm temperate with dry, hot summer",2009-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,Windmaster Pro,3.18,0.5,Broadleaf crop,North America,United States,O,1
+US-UMB,45.55984,-84.71382,234,DBF,Dfb - Snow fully humid warm summer,2000-01-01 00:00:00,2014-12-31 23:00:00,LI-6262 and LI-7000,CSAT-3,32.0,22.0,Deciduous Broadleaf Trees,North America,United States,C,1
+US-UMd,45.5625,-84.6975,239,DBF,Dfb - Snow fully humid warm summer,2007-01-01 00:00:00,2014-12-31 23:30:00,LI-6252,CSAT-3,46.0,22.0,Deciduous Broadleaf Trees,North America,United States,C,1
+US-Var,38.4133,-120.9507,133,GRA,"Csa - Warm temperate with dry, hot summer",2000-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,Windmaster Pro,2.0,0.3,Shrub,North America,United States,O,1
+US-WCr,45.8059,-90.0799,512,DBF,Dfb - Snow fully humid warm summer,1999-01-01 00:00:00,2014-12-31 23:00:00,LI-6262,CSAT-3,29.6,24.0,Deciduous Broadleaf Trees,North America,United States,C,1
+US-Whs,31.7438,-110.0522,1366,OSH,BSk - Arid Steppe cold,2007-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT-3,6.5,1.0,Shrub,North America,United States,O,1
+US-Wi0,46.618778,-91.081444,347,ENF,Dfb - Snow fully humid warm summer,2002-01-01 00:00:00,2002-12-31 23:30:00,LI-7500,CSAT-3,6.0,3.0,Evergreen Needleleaf Trees,North America,United States,O,1
+US-Wi1,46.730472,-91.232944,331,DBF,Dfb - Snow fully humid warm summer,2003-01-01 00:00:00,2003-12-31 23:30:00,LI-7500,CSAT-3,9.0,6.0,Deciduous Broadleaf Trees,North America,United States,O,1
+US-Wi2,46.686889,-91.152833,393,ENF,Dfb - Snow fully humid warm summer,2003-01-01 00:00:00,2003-12-31 23:30:00,LI-7500,CSAT-3,9.0,6.0,Evergreen Needleleaf Trees,North America,United States,O,1
+US-Wi3,46.634722,-91.098667,371,DBF,Dfb - Snow fully humid warm summer,2002-01-01 00:00:00,2004-12-31 23:30:00,LI-7500,CSAT-3,26.0,21.0,Deciduous Broadleaf Trees,North America,United States,O,1
+US-Wi4,46.739333,-91.16625,362,ENF,Dfb - Snow fully humid warm summer,2002-01-01 00:00:00,2005-12-31 23:30:00,LI-7500,CSAT-3,23.0,18.0,Evergreen Needleleaf Trees,North America,United States,O,1
+US-Wi5,46.653083,-91.085806,352,ENF,Dfb - Snow fully humid warm summer,2004-01-01 00:00:00,2004-12-31 23:30:00,LI-7500,CSAT-3,6.0,4.0,Evergreen Needleleaf Trees,North America,United States,O,1
+US-Wi6,46.624889,-91.298222,365,OSH,Dfb - Snow fully humid warm summer,2002-01-01 00:00:00,2003-12-31 23:30:00,LI-7500,CSAT-3,3.0,0.5,Cereal crop,North America,United States,O,1
+US-Wi7,46.649111,-91.069278,341,OSH,Dfb - Snow fully humid warm summer,2005-01-01 00:00:00,2005-12-31 23:30:00,LI-7500,CSAT-3,6.0,0.5,Cereal crop,North America,United States,O,1
+US-Wi8,46.722333,-91.252417,381,DBF,Dfb - Snow fully humid warm summer,2002-01-01 00:00:00,2002-12-31 23:30:00,LI-7500,CSAT-3,3.0,1.5,Deciduous Broadleaf Trees,North America,United States,O,1
+US-Wi9,46.618778,-91.081444,347,ENF,Dfb - Snow fully humid warm summer,2004-01-01 00:00:00,2005-12-31 23:30:00,LI-7500,CSAT-3,9.0,2.4,Evergreen Needleleaf Trees,North America,United States,O,1
+US-Wkg,31.7365,-109.9419,1524,GRA,BSk - Arid Steppe cold,2004-01-01 00:00:00,2014-12-31 23:30:00,LI-7500,CSAT-3,6.4,0.5,Grass,North America,United States,O,1
+US-WPT,41.464639,-82.996157,175,WET,Dfa - Snow with fully humid hot summer,2011-01-01 00:00:00,2013-12-31 23:30:00,LI-7500,CSAT-3,2.7,0.6,Deciduous Broadleaf Trees,North America,United States,O,1
+ZA-Kru,-25.0197,31.4969,357,SAV,BSh - Arid Steppe hot,2000-01-01 00:00:00,2013-12-31 23:30:00,LI-6262,WindMaster,17.0,9.0,Grass,Africa,South Africa,C,2
+ZM-Mon,-15.43778,23.25278,1094,DBF,Aw - Equatorial savannah with dry winter,2000-01-01 00:00:00,2009-12-31 23:30:00,LI-7000,R3,19.5,10.0,Grass,Africa,Zambia,C,1
