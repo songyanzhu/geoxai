@@ -1,3 +1,3 @@
-from .autoload import *
+# from .autoload import *
 from .canvas import *
 from .google import *
