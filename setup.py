@@ -27,6 +27,7 @@ setup(
 	include_package_data = True,
     package_data={
         "geoxai": ["ec/data/*.csv"],
+        "geoxai": ["geo/data/*.geojson"],
     },
 	platforms = "any",
 	install_requires=[
