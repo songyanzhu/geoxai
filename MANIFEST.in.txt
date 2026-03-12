@@ -1,2 +1,2 @@
-recursive-include geosai/ec/data *.csv
-recursive-include geosai/geo/data *.geojson
+recursive-include geoxai/ec/data *.csv
+recursive-include geoxai/geo/data *.geojson
