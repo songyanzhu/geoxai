@@ -24,11 +24,14 @@ setup(
 	author_email = "Songyan.Zhu@soton.ac.uk",
 
 	packages = find_packages(),
-	include_package_data = True,
-    package_data={
-        "geoxai": ["ec/data/*.csv"],
-        "geoxai": ["geo/data/*.geojson"],
-    },
+	include_package_data = True,    
+	package_data={
+		"geoxai": [
+			"ec/data/*.csv",
+			"geo/data/*.geojson",
+		],
+	},
+
 	platforms = "any",
 	install_requires=[
             # "geopandas==0.4.1",
