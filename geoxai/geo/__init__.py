@@ -6,7 +6,7 @@ from pathlib import Path
 _data_path = Path(__file__).parent / "data"
 
 # Load csv
-world = gpd.read_file(_data_path / "world_naturalearth_lowres.geojson")
+world = gpd.read_file(_data_path / "world.geojson")
 world10m = gpd.read_file(_data_path / "WB_countries_Admin0_10m.geojson")
 
 # expose them as module variables
