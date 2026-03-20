@@ -1,97 +1,164 @@
 import numpy as np
 import pandas as pd
 from scipy import stats
-from sklearn.metrics import explained_variance_score, max_error, mean_absolute_error, mean_squared_error, mean_squared_log_error, median_absolute_error, r2_score, mean_poisson_deviance, mean_gamma_deviance, mean_tweedie_deviance
 import statsmodels.api as sm
 from typing import Dict, Any, Optional
 
-def stats_summary(df):
-    min_ = df.min().to_frame().T
-    Q1 = df.quantile(0.25).to_frame().T
-    median_ = df.quantile(0.5).to_frame().T
-    mean_ = df.mean().to_frame().T
-    Q3 = df.quantile(0.75).to_frame().T
-    max_ = df.max().to_frame().T
-    df_stats = pd.concat([min_, Q1, median_, mean_, Q3, max_])
-    df_stats.index = ["Min", "Q1", "Median", "Mean", "Q3", "Max"]
-    return df_stats
-
-def stats_measures(x, y):
-    # from sklearn.metrics import mean_absolute_percentage_error
-    slope, intercept, rvalue, pvalue, stderr = stats.linregress(x, y)
-    mse = mean_squared_error(x, y)
-    r2 = rvalue ** 2
-    rmse = np.sqrt(mse)
-    mbe = (y - x).mean()
-    # ----------------------------------------------------------------
-    pearsonr = stats.pearsonr(x, y)
-    evs = explained_variance_score(x, y)
-    me = max_error(x, y)
-    mae = mean_absolute_error(x, y)
-    msle = mean_squared_log_error(x, y)
-    meae = median_absolute_error(x, y)
-    r2_score_ = r2_score(x, y)
-    mpd = mean_poisson_deviance(x, y)
-    mgd = mean_gamma_deviance(x, y)
-    mtd = mean_tweedie_deviance(x, y)
-    mean_ = np.mean(x)
-    return {
-        "r2": r2,
-        "SLOPE": slope,
-        "RMSE": rmse,
-        "MBE": mbe,
-        "INTERCEPT": intercept,
-        "PVALUE": pvalue,
-        "STDERR": stderr,
-        "PEARSON": pearsonr,
-        "EXPLAINED_VARIANCE": evs,
-        "MAXERR": me,
-        "MAE": mae,
-        "MSLE": msle,
-        "MEDIAN_AE": meae,
-        "R2": r2_score_,
-        "MPD": mpd,
-        "MGD": mgd,
-        "MTD": mtd,
-        "MEAN": mean_
-    }
-
-
-def get_r2(x, y):
-    try:
-        x_bar = x.mean()
-    except:
-        x_bar = np.mean(x)
-
-    r2 = 1 - np.sum((x - y)**2) / np.sum((x - x_bar)**2)
-    return r2
-
-def get_rmse(observations, estimates):
-    return np.sqrt(((estimates - observations) ** 2).mean())
-
-def calculate_R2(y_true, y_pred):
+# -------------------
+# Summary statistics
+# -------------------
+def stats_summary(
+    data: Union[np.ndarray, pd.DataFrame],
+    x: Optional[str] = None,
+    y: Optional[str] = None,
+    output_type: str = "dict"
+) -> Union[Dict[str, np.ndarray], pd.DataFrame]:
     """
-    Calculate the R^2 (coefficient of determination).
+    Compute summary statistics (Min, Q1, Median, Mean, Q3, Max).
 
-    Args:
-        y_true (array-like): Actual values of the dependent variable.
-        y_pred (array-like): Predicted values of the dependent variable.
+    Parameters:
+        data: np.ndarray or pd.DataFrame
+        x: column name for DataFrame input (ignored for numpy)
+        y: column name for DataFrame input (ignored for numpy)
+        output_type: 'dict' (default) or 'df'
 
     Returns:
-        float: The R^2 value.
+        dict or pd.DataFrame with summary statistics
     """
-    y_true = np.array(y_true)
-    y_pred = np.array(y_pred)
+    # Handle DataFrame input
+    if isinstance(data, pd.DataFrame):
+        if x is None or y is None:
+            raise ValueError("For DataFrame input, provide column names x and y.")
+        arr = data[[x, y]].to_numpy(dtype=float)
+        cols = [x, y]
+    else:
+        arr = np.asarray(data, dtype=float)
+        # If 1D array, reshape
+        if arr.ndim == 1:
+            arr = arr.reshape(-1, 1)
+        cols = [f"Var{i}" for i in range(arr.shape[1])]
 
-    # Residual sum of squares
-    ss_res = np.sum((y_true - y_pred) ** 2)
+    # Compute statistics ignoring NaNs
+    min_ = np.nanmin(arr, axis=0)
+    q1 = np.nanpercentile(arr, 25, axis=0)
+    median_ = np.nanmedian(arr, axis=0)
+    mean_ = np.nanmean(arr, axis=0)
+    q3 = np.nanpercentile(arr, 75, axis=0)
+    max_ = np.nanmax(arr, axis=0)
 
-    # Total sum of squares
-    ss_tot = np.sum((y_true - np.mean(y_true)) ** 2)
+    stats_dict = {
+        "Min": min_,
+        "Q1": q1,
+        "Median": median_,
+        "Mean": mean_,
+        "Q3": q3,
+        "Max": max_
+    }
 
-    # R^2 calculation
-    R2 = 1 - (ss_res / ss_tot)
-    return R2
+    if output_type == "df":
+        df = pd.DataFrame(stats_dict, index=cols).T
+        return df
+    else:
+        return stats_dict
+
+
+# -------------------
+# Regression metrics
+# -------------------
+def stats_measures(
+    x: Union[np.ndarray, pd.Series, pd.DataFrame],
+    y: Optional[Union[np.ndarray, pd.Series]] = None,
+    df: Optional[pd.DataFrame] = None,
+    x_col: Optional[str] = None,
+    y_col: Optional[str] = None,
+    output_type: str = "dict"
+) -> Union[Dict[str, Any], pd.DataFrame]:
+    """
+    Compute regression metrics: R2, RMSE, MAE, MBE, Pearson r, explained variance, etc.
+
+    Parameters:
+        x, y: numpy arrays or pd.Series if using numpy input
+        df: pd.DataFrame if using column input
+        x_col, y_col: column names for df
+        output_type: 'dict' (default) or 'df'
+
+    Returns:
+        dict or pd.DataFrame of regression metrics
+    """
+    # Determine input type
+    if df is not None:
+        if x_col is None or y_col is None:
+            raise ValueError("Provide x_col and y_col for DataFrame input.")
+        x = df[x_col].to_numpy(dtype=float)
+        y = df[y_col].to_numpy(dtype=float)
+    else:
+        x = np.asarray(x, dtype=float)
+        y = np.asarray(y, dtype=float)
+
+    # Remove NaNs
+    mask = ~np.isnan(x) & ~np.isnan(y)
+    x, y = x[mask], y[mask]
+
+    # Linear regression
+    slope, intercept, r_value, p_value, stderr = stats.linregress(x, y)
+
+    # Helper functions
+    def r2_func(a, b):
+        mean_a = np.mean(a)
+        return 1 - np.sum((b - a) ** 2) / np.sum((a - mean_a) ** 2)
+
+    def rmse_func(a, b):
+        return np.sqrt(np.mean((b - a) ** 2))
+
+    def mae_func(a, b):
+        return np.mean(np.abs(b - a))
+
+    def median_absolute_error(a, b):
+        return np.median(np.abs(b - a))
+
+    def max_error(a, b):
+        return np.max(np.abs(b - a))
+
+    def explained_variance(a, b):
+        return 1 - np.var(a - b) / np.var(a) if np.var(a) != 0 else np.nan
+
+    def pearsonr_func(a, b) -> Tuple[float, float]:
+        r = np.corrcoef(a, b)[0, 1]
+        n = a.size
+        if n < 3:
+            return np.nan, np.nan
+        t_stat = r * np.sqrt((n - 2) / (1 - r ** 2))
+        df_ = n - 2
+        if df_ > 30:
+            from math import erf, sqrt
+            p = 2 * (1 - 0.5 * (1 + erf(abs(t_stat)/sqrt(2))))
+        else:
+            p = np.nan
+        return r, p
+
+    Pearsonr, Pearsonp = pearsonr_func(x, y)
+    metrics_dict = {
+        "r2": r_value ** 2,
+        "R2": r2_func(x, y),
+        "slope": slope,
+        "intercept": intercept,
+        "pvalue": p_value,
+        "RMSE": rmse_func(x, y),
+        "MBE": np.mean(y - x),
+        "MAE": mae_func(x, y),
+        "stderr": stderr,
+        "Pearsonr": Pearsonr,
+        'Pearsonp': Pearsonp,
+        "explained_variance": explained_variance(x, y),
+        "MAXERR": max_error(x, y),
+        "MEAE": median_absolute_error(x, y),
+        "mean": np.mean(x)
+    }
+
+    if output_type == "df":
+        return pd.DataFrame(metrics_dict, index=[0])
+    else:
+        return metrics_dict
 
 def regress2(
     x: np.ndarray, 
