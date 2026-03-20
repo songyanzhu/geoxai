@@ -56,21 +56,6 @@ def stats_measures(x, y):
         "MEAN": mean_
     }
 
-def stats_measures_df(df, name1, name2, return_dict = False):
-    slope, intercept, rvalue, pvalue, stderr = stats.linregress(df[name1], df[name2])
-    mse = mean_squared_error(df[name1], df[name2])
-    r2 = rvalue ** 2
-    rmse = np.sqrt(mse)
-    mbe = (df[name2] - df[name1]).mean()
-    if return_dict:
-        return {
-            "R2": r2,
-            "SLOPE": slope,
-            "RMSE": rmse,
-            "MBE": mbe
-        }
-    else:
-        return [r2, slope, rmse, mbe]
 
 def get_r2(x, y):
     try:
