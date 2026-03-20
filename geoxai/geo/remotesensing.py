@@ -50,7 +50,7 @@ def get_MODIS_IGBPcode(number_first = False):
     MODIS_IGBP_codes = ['ENF', 'EBF', 'DNF', 'DBF', 'MF', 'CSH', 'OSH', 'WSA', 'SAV', 'GRA', 'WET', 'CRO', 'URB', 'CNV', 'SNO', 'BSV', 'WAB']
     MODIS_IGBP_dict = dict(zip(MODIS_IGBP_codes, np.arange(len(MODIS_IGBP_codes)) + 1))
     if number_first:
-        return {v: k for k, v in esa_class.items()}
+        return {v: k for k, v in MODIS_IGBP_dict.items()}
     else:
         return MODIS_IGBP_dict
 
