@@ -7,72 +7,9 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import matplotlib.colors as mcolors
 import matplotlib.dates  as mdates
-import matplotlib.patches
-import matplotlib.collections
-from scipy import stats
 from scipy.stats import gaussian_kde
-from scipy.optimize import curve_fit
 
-def show_colors(
-        colors: list,
-        width: float = 1, height: float = 1,
-        hspace: float = 0.05, wspace: float = 0.05,
-        fontsize: int = 10,
-):
-    """
-    Render a grid of colored patches labelled with their hex values.
-
-    Args:
-        colors   (list)  : List of color strings to display.
-        width    (float) : Width of each patch.
-        height   (float) : Height of each patch.
-        hspace   (float) : Vertical gap between patches.
-        wspace   (float) : Horizontal gap between patches.
-        fontsize (int)   : Font size for hex labels.
-
-    Returns:
-        tuple: (fig, ax)
-    """
-    ncolors = len(colors)
-
-    # Determine grid dimensions — closest square that fits all colors
-    ncol = int(np.floor(np.sqrt(ncolors)))
-    nrow = ncol
-    while nrow * ncol < ncolors:
-        nrow += 1
-
-    xx = np.arange(0, ncol, width  + wspace)
-    yy = np.arange(0, nrow, height + hspace)
-
-    fig, ax = setup_canvas(1, 1, figsize=(6, 6))
-    patches = []
-
-    for i, xi in enumerate(xx):
-        for j, yi in enumerate(yy):
-            cnt   = i * nrow + j
-            text  = colors[cnt] if cnt < ncolors else None
-            color = colors[cnt] if cnt < ncolors else 'None'
-
-            patch = matplotlib.patches.Rectangle(
-                (xi, yi), width, height, fill=True, color=color
-            )
-            ax.add_patch(patch)
-
-            if text:
-                ax.text(
-                    xi + width / 2, yi + height / 2, text,
-                    fontsize=fontsize,
-                    horizontalalignment='center',
-                    verticalalignment='center',
-                )
-
-    ax.add_collection(matplotlib.collections.PatchCollection(patches))
-    ax.relim()
-    ax.autoscale_view()
-    ax.axis('off')
-    return fig, ax
 
 
 # ===========================================================================
@@ -205,7 +142,7 @@ def savefig(fig, savefile: str, dpi: int = 600, bbox_inches: str = 'tight', tran
 # Axis Helpers
 # ===========================================================================
 
-def upper_legend(
+def adjust_legend(
         ax,
         xloc: float       = 0.5,
         yloc: float       = 1.1,
