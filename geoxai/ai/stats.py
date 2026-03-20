@@ -125,3 +125,44 @@ def regress2(
         "std_intercept": float(std_int),
         "predict": predict
     }
+
+
+def concordance_correlation_coefficient(y_true, y_pred):
+    """
+    Compute Lin's Concordance Correlation Coefficient (CCC).
+
+    CCC measures agreement between two variables by combining
+    precision (correlation) and accuracy (closeness to 1:1 line).
+
+    https://rowannicholls.github.io/python/statistics/agreement/correlation_coefficients.html#lins-concordance-correlation-coefficient-ccc
+    Lin LIK (1989). “A concordance correlation coefficient to evaluate reproducibility”. Biometrics. 45 (1):255-268.
+    
+    Example:
+    y_true = [3, -0.5, 2, 7, np.nan]
+    y_pred = [2.5, 0.0, 2, 8, 3]
+    ccc = concordance_correlation_coefficient(y_true, y_pred)
+    print(ccc)
+    """
+    y_true = np.asarray(y_true)
+    y_pred = np.asarray(y_pred)
+
+    mask = ~np.isnan(y_true) & ~np.isnan(y_pred)
+    y_true = y_true[mask]
+    y_pred = y_pred[mask]
+
+    if y_true.size == 0:
+        return np.nan
+
+    mean_true = y_true.mean()
+    mean_pred = y_pred.mean()
+
+    diff_true = y_true - mean_true
+    diff_pred = y_pred - mean_pred
+
+    var_true = np.mean(diff_true ** 2)
+    var_pred = np.mean(diff_pred ** 2)
+    cov = np.mean(diff_true * diff_pred)
+
+    return (2 * cov) / (
+        var_true + var_pred + (mean_true - mean_pred) ** 2
+    )
