@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 import statsmodels.api as sm
-from typing import Dict, Any, Optional
+from typing import Union, Optional, Dict, Any, Tuple
 
 # -------------------
 # Summary statistics
@@ -24,6 +24,15 @@ def stats_summary(
 
     Returns:
         dict or pd.DataFrame with summary statistics
+
+    Example:
+    np.random.seed(42)
+    true_signal = np.linspace(0, 10, 50)
+    x = true_signal + np.random.normal(0, 1, 50)  # Sensor A with noise
+    y = true_signal + np.random.normal(0, 1, 50)  # Sensor B with noise
+
+    df = pd.DataFrame(data={"x": x, "y": y})
+    summary = stats_summary(np.column_stack([x, y]), output_type="x")
     """
     # Handle DataFrame input
     if isinstance(data, pd.DataFrame):
@@ -84,6 +93,15 @@ def stats_measures(
 
     Returns:
         dict or pd.DataFrame of regression metrics
+
+    Example:
+    np.random.seed(42)
+    true_signal = np.linspace(0, 10, 50)
+    x = true_signal + np.random.normal(0, 1, 50)  # Sensor A with noise
+    y = true_signal + np.random.normal(0, 1, 50)  # Sensor B with noise
+
+    df = pd.DataFrame(data={"x": x, "y": y})
+    metrics = stats_measures(x, y, output_type="x")
     """
     # Determine input type
     if df is not None:
