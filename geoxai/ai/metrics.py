@@ -8,11 +8,9 @@ from typing import Union, Optional, Dict, Any, Tuple
 # Summary statistics
 # -------------------
 def stats_summary(
-    data: Union[np.ndarray, pd.DataFrame],
-    x: Optional[str] = None,
-    y: Optional[str] = None,
+    data: np.ndarray | pd.DataFrame,
     output_type: str = "dict"
-) -> Union[Dict[str, np.ndarray], pd.DataFrame]:
+) -> Dict[str, np.ndarray] | pd.DataFrame:
     """
     Compute summary statistics (Min, Q1, Median, Mean, Q3, Max).
 
@@ -32,44 +30,34 @@ def stats_summary(
     y = true_signal + np.random.normal(0, 1, 50)  # Sensor B with noise
 
     df = pd.DataFrame(data={"x": x, "y": y})
-    summary = stats_summary(np.column_stack([x, y]), output_type="x")
+    summary = stats_summary(np.column_stack([x, y]), output_type="df")
     """
-    # Handle DataFrame input
+    # --- Handle input ---
     if isinstance(data, pd.DataFrame):
-        if x is None or y is None:
-            raise ValueError("For DataFrame input, provide column names x and y.")
-        arr = data[[x, y]].to_numpy(dtype=float)
-        cols = [x, y]
+        # Use only numeric columns
+        df = data.select_dtypes(include=[np.number])
+        arr = df.to_numpy(dtype=float)
+        cols = df.columns.tolist()
     else:
         arr = np.asarray(data, dtype=float)
-        # If 1D array, reshape
         if arr.ndim == 1:
             arr = arr.reshape(-1, 1)
         cols = [f"Var{i}" for i in range(arr.shape[1])]
 
-    # Compute statistics ignoring NaNs
-    min_ = np.nanmin(arr, axis=0)
-    q1 = np.nanpercentile(arr, 25, axis=0)
-    median_ = np.nanmedian(arr, axis=0)
-    mean_ = np.nanmean(arr, axis=0)
-    q3 = np.nanpercentile(arr, 75, axis=0)
-    max_ = np.nanmax(arr, axis=0)
-
+    # --- Compute statistics ---
     stats_dict = {
-        "Min": min_,
-        "Q1": q1,
-        "Median": median_,
-        "Mean": mean_,
-        "Q3": q3,
-        "Max": max_
+        "Min": np.nanmin(arr, axis=0),
+        "Q1": np.nanpercentile(arr, 25, axis=0),
+        "Median": np.nanmedian(arr, axis=0),
+        "Mean": np.nanmean(arr, axis=0),
+        "Q3": np.nanpercentile(arr, 75, axis=0),
+        "Max": np.nanmax(arr, axis=0),
     }
 
+    # --- Output ---
     if output_type == "df":
-        df = pd.DataFrame(stats_dict, index=cols).T
-        return df
-    else:
-        return stats_dict
-
+        return pd.DataFrame(stats_dict, index=cols).T
+    return stats_dict
 
 # -------------------
 # Regression metrics
@@ -101,7 +89,7 @@ def stats_measures(
     y = true_signal + np.random.normal(0, 1, 50)  # Sensor B with noise
 
     df = pd.DataFrame(data={"x": x, "y": y})
-    metrics = stats_measures(x, y, output_type="x")
+    metrics = stats_measures(x, y, output_type="df")
     """
     # Determine input type
     if df is not None:
