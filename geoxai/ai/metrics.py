@@ -30,7 +30,7 @@ def stats_measures(x, y):
     mae = mean_absolute_error(x, y)
     msle = mean_squared_log_error(x, y)
     meae = median_absolute_error(x, y)
-    r2_score = r2_score(x, y)
+    r2_score_ = r2_score(x, y)
     mpd = mean_poisson_deviance(x, y)
     mgd = mean_gamma_deviance(x, y)
     mtd = mean_tweedie_deviance(x, y)
@@ -49,7 +49,7 @@ def stats_measures(x, y):
         "MAE": mae,
         "MSLE": msle,
         "MEDIAN_AE": meae,
-        "R2": r2_score,
+        "R2": r2_score_,
         "MPD": mpd,
         "MGD": mgd,
         "MTD": mtd,
@@ -216,7 +216,6 @@ def regress2(
         "std_intercept": float(std_int),
         "predict": predict
     }
-
 
 def concordance_correlation_coefficient(y_true, y_pred):
     """
