@@ -14,4 +14,4 @@ globals().update(world)
 globals().update(world10m)
 
 # control what `import *` exports
-__all__ = ["world", "world10m"]
+__all__ = ["world", "world10m"] + ["climate", "meteo", "geobox", "geoface", "remotesensing"]
