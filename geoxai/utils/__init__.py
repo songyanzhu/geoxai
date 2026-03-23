@@ -2,3 +2,4 @@
 from .canvas import *
 from .google import *
 from .palettes import *
+from .helpers import *
