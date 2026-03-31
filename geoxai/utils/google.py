@@ -13,8 +13,9 @@ def mount_drive(force_remount=False):
     from google.colab import drive
     from pathlib import Path
 
-    drive.mount('/content/drive', force_remount=force_remount)
-    return Path.cwd().joinpath('drive/My Drive')
+    if ~Path('/content/drive').exists():
+        drive.mount('/content/drive', force_remount=force_remount)
+    return Path('/content/drive/My Drive') # Path.cwd().joinpath('drive/My Drive')
 
 def unmount_drive():
     """
