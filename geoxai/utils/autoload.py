@@ -16,6 +16,7 @@ import shutil
 import subprocess
 import sys
 import time
+import threading
 import warnings
 from copy import deepcopy
 from datetime import datetime, timedelta
@@ -112,10 +113,33 @@ def _try_install_github(repo_url: str, fallback_pip: str) -> None:
 # ---------------------------------------------------------------------------
 # Prompt user
 # ---------------------------------------------------------------------------
-_response = input("Auto-install optional geospatial AI packages? (y/n): ").strip().lower()
+# # option 1 [no default is set up]
+# _response = input("Auto-install optional geospatial AI packages? (y/n): ").strip().lower()
 
-if not _response:
-    raise ValueError('No input received. Please enter "y" or "n".')
+# if not _response:
+#     raise ValueError('No input received. Please enter "y" or "n".')
+
+def input_with_timeout(prompt, timeout=10, default='y'):
+    user_input = {'value': default}
+
+    def ask():
+        try:
+            user_input['value'] = input(prompt).strip().lower()
+        except:
+            pass
+
+    t = threading.Thread(target=ask)
+    t.daemon = True
+    t.start()
+    t.join(timeout)
+
+    return user_input['value']
+
+_response = input_with_timeout(
+    "Auto-install optional geospatial AI packages? (y/n): [defaults to 'y' after 10 seconds of no input]",
+    timeout=10,
+    default='y'
+)
 
 _choice = _response[0]
 
