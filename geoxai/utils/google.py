@@ -13,7 +13,7 @@ def mount_drive(force_remount=False):
     from google.colab import drive
     from pathlib import Path
 
-    if ~Path('/content/drive').exists():
+    if (not Path('/content/drive').exists()) or (force_remount == True):
         drive.mount('/content/drive', force_remount=force_remount)
     return Path('/content/drive/My Drive') # Path.cwd().joinpath('drive/My Drive')
 
