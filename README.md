@@ -45,3 +45,5 @@ This tutorial series emphasizes hands-on learning using real-world data and exam
 
 Let’s get started! 🚀
 
+How to install it: !pip install git+https://github.com/songyanzhu/geoxai.git -U --quiet
+
