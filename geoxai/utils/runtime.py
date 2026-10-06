@@ -1,6 +1,5 @@
 import os
 
-
 def is_colab_hosted(*, verbose: bool = False) -> bool:
     """Detect whether the runtime is hosted by Google Colab.
 
