@@ -1,10 +1,11 @@
 import numpy as np
+import pandas as pd
 import copy
 import itertools
 from scipy import ndimage
 from xgboost import XGBRegressor
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, KFold, GroupKFold, StratifiedGroupKFold
 
 class SmartForest4D:
     """
@@ -386,6 +387,371 @@ print("\n✅ Final RMSE on validation set:", rmse)
 best_model, best_rmse = model.get_best_model()
 print("\nBest validation RMSE:", best_rmse)
 """
+
+# ============================================================================================================================================================
+
+# =====================================================================
+# SmartForestTransfer（逐层堆叠的 XGBoost 深度森林）
+# =====================================================================
+
+
+class SmartForestTransfer:
+    """
+    SmartForestTransfer（SFT）：面向空间外推的逐层堆叠 XGBoost 深度森林（表格输入）。
+
+    SFT 的目标是空间可迁移性（spatial transferability）：让模型从已有通量站学到的规律，
+    能用到训练时从未见过的地点，比如新的通量站，或者全球没有观测的像元。为此，SFT 在训练
+    过程中始终按站点（推荐用空间簇）分折，用"预测没见过的站点"的能力来决定树的数量、层数
+    和超参数，而不是在已知站点内的拟合精度。
+
+    与 SmartForest4D（SF）是两个独立的分支，互不影响：
+    - SF  擅长已知站点内的插补（随机划分下精度高），但对新站点的泛化较弱；
+    - SFT 擅长对新站点和全球像元的预测，适合上推；在随机划分下的分数会低于 SF，这是设计使然。
+
+    每一层
+    ------
+    - n_estimators_per_layer 个位置 × n_folds 折；每个折模型在自己的留出折上早停（加权）。
+    - 下一层新增特征 = 本层 OOF 预测（无信息泄漏）及其均值、标准差（add_output_stats）。
+    - 下一层输入 = 按第 1 层 gain 重要性筛选后的原始特征（feature_keep）+ 新增特征。
+    - 折模型训练时每个站点最多用 max_per_site 条记录（OOF 仍覆盖全部样本）。
+
+    分折：groups（推荐空间簇）分组，stratify（推荐 IGBP）分层 → StratifiedGroupKFold。
+    选层与调参：按（加权）OOF 分数，或给定的验证集；tune_trials > 0 时第 1 层随机搜索参数。
+    训练结束只保留最优层。
+
+    预测：refit=True 时每个位置用全部（抽样后）训练数据重训一个模型；
+          predict(X, return_std=True) 返回最后一层全部折模型预测的标准差（模型方差，相对指标）。
+    设备：use_gpu / gpu_id；训练后可用 set_device('cpu' | 'cuda' | 'cuda:1') 切换。
+    """
+
+    DEFAULT_XGB = {
+        "objective": "reg:squarederror",
+        "n_estimators": 2000,          # 上限；实际树数由早停决定
+        "learning_rate": 0.05,
+        "max_depth": 6,
+        "min_child_weight": 4,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8,
+        "gamma": 0,
+        "reg_alpha": 0,
+        "reg_lambda": 1,
+    }
+
+    # 动态调参的搜索范围：(最小值, 最大值, 类型)；"log" 表示在对数尺度上取值
+    TUNE_SPACE = {
+        "max_depth": (3, 10, "int"),
+        "min_child_weight": (1, 20, "log"),
+        "learning_rate": (0.02, 0.2, "log"),
+        "subsample": (0.5, 1.0, "float"),
+        "colsample_bytree": (0.5, 1.0, "float"),
+        "reg_lambda": (0.1, 20, "log"),
+        "reg_alpha": (1e-3, 5, "log"),
+        "gamma": (0, 2, "float"),
+    }
+
+    def __init__(self, n_estimators_per_layer=2, max_layers=6, early_stopping_rounds=2,
+                 n_folds=5, tree_early_stopping=50, xgb_params=None,
+                 refit=True, use_gpu=False, gpu_id=0, eval_metric="r2",
+                 feature_keep=0.8, add_output_stats=True, max_per_site=None,
+                 tune_trials=0, tune_space=None, retune_each_layer=False,
+                 keep_fold_models=True, random_state=42, verbose=1):
+        self.n_estimators_per_layer = n_estimators_per_layer
+        self.max_layers = max_layers
+        self.early_stopping_rounds = early_stopping_rounds
+        self.n_folds = n_folds
+        self.tree_early_stopping = tree_early_stopping
+        self.refit = refit
+        self.use_gpu = use_gpu
+        self.gpu_id = gpu_id
+        self.eval_metric = eval_metric.lower()
+        self.feature_keep = feature_keep
+        self.add_output_stats = add_output_stats
+        self.max_per_site = max_per_site
+        self.tune_trials = tune_trials
+        self.tune_space = tune_space or self.TUNE_SPACE
+        self.retune_each_layer = retune_each_layer
+        self.keep_fold_models = keep_fold_models
+        self.random_state = random_state
+        self.verbose = verbose
+
+        params = dict(self.DEFAULT_XGB)
+        if xgb_params:
+            params.update(xgb_params)
+        params.pop("random_state", None)
+        params.pop("seed", None)
+        self.xgb_params = params
+
+        self.layers = []              # 预测用模型：每层一个列表（refit 模型或折模型列表）
+        self.fold_layers = []         # 每层每个位置的折模型（用于不确定性）
+        self.keep_idx = None          # 第 2 层起保留的原始特征列号
+        self.feature_importance = None
+        self.folds = None
+        self.best_score = None
+        self.history = None
+        self.tuning = []
+
+    # ------------------------------------------------------------------
+    @property
+    def device(self):
+        return f"cuda:{self.gpu_id}" if self.use_gpu else "cpu"
+
+    def _better(self, a, b):
+        return a > b if self.eval_metric == "r2" else a < b
+
+    def _score(self, y, p, w=None):
+        if self.eval_metric == "r2":
+            return r2_score(y, p, sample_weight=w)
+        if self.eval_metric == "rmse":
+            return np.sqrt(mean_squared_error(y, p, sample_weight=w))
+        if self.eval_metric == "mae":
+            return mean_absolute_error(y, p, sample_weight=w)
+        raise ValueError(f"未知的 eval_metric：{self.eval_metric}")
+
+    def _new_reg(self, seed, params, n_estimators=None, early_stop=True):
+        p = dict(params)
+        p.update(random_state=seed, tree_method="hist", device=self.device)
+        if n_estimators is not None:
+            p["n_estimators"] = n_estimators
+        if early_stop:
+            p["early_stopping_rounds"] = self.tree_early_stopping
+        return XGBRegressor(**p)
+
+    @staticmethod
+    def _fit_reg(reg, X, y, w, X_eval=None, y_eval=None, w_eval=None):
+        kw = {"sample_weight": w, "verbose": False}
+        if X_eval is not None:
+            kw["eval_set"] = [(X_eval, y_eval)]
+            kw["sample_weight_eval_set"] = [w_eval]
+        return reg.fit(X, y, **kw)
+
+    def _cap_mask(self, site_ids, seed):
+        """每个站点最多保留 max_per_site 条记录（随机），返回布尔掩膜。"""
+        n = len(site_ids) if site_ids is not None else 0
+        if not self.max_per_site or site_ids is None:
+            return None
+        rng = np.random.default_rng(seed)
+        order = rng.permutation(n)
+        s = pd.Series(np.asarray(site_ids)[order])
+        rank = s.groupby(s).cumcount().to_numpy()
+        mask = np.zeros(n, bool)
+        mask[order[rank < self.max_per_site]] = True
+        return mask
+
+    def _make_folds(self, X, y, groups, stratify):
+        if groups is not None and stratify is not None:
+            spl = StratifiedGroupKFold(n_splits=self.n_folds, shuffle=True, random_state=self.random_state)
+            return list(spl.split(X, np.asarray(stratify).astype(str), groups))
+        if groups is not None:
+            return list(GroupKFold(n_splits=self.n_folds).split(X, y, groups))
+        return list(KFold(self.n_folds, shuffle=True, random_state=self.random_state).split(X))
+
+    def _sample_params(self, rng):
+        p = dict(self.xgb_params)
+        for k, (lo, hi, kind) in self.tune_space.items():
+            if kind == "int":
+                p[k] = int(rng.integers(lo, hi + 1))
+            elif kind == "log":
+                p[k] = float(np.exp(rng.uniform(np.log(max(lo, 1e-12)), np.log(hi))))
+            else:
+                p[k] = float(rng.uniform(lo, hi))
+        return p
+
+    def _stats(self, out):
+        if not self.add_output_stats:
+            return out
+        return np.hstack([out, out.mean(axis=1, keepdims=True), out.std(axis=1, keepdims=True)])
+
+    def _next_input(self, X, out):
+        base = X if self.keep_idx is None else X[:, self.keep_idx]
+        return np.hstack([base, self._stats(out)]).astype(np.float32)
+
+    @staticmethod
+    def _predict_unit(unit, X):
+        if isinstance(unit, list):
+            return np.mean([m.predict(X) for m in unit], axis=0)
+        return unit.predict(X)
+
+    def _layer_outputs(self, layer, X):
+        return np.column_stack([self._predict_unit(u, X) for u in layer]).astype(np.float32)
+
+    # ------------------------------------------------------------------
+    def _tune(self, X_cur, y, w, folds, cap, layer_index):
+        rng = np.random.default_rng(self.random_state + layer_index)
+        candidates = [dict(self.xgb_params)] + [self._sample_params(rng) for _ in range(self.tune_trials)]
+        best_p, best_s, records = None, None, []
+        for i, p in enumerate(candidates):
+            oof = np.zeros(len(y), dtype=np.float32)
+            for k, (tr, te) in enumerate(folds):
+                tr_used = tr if cap is None else tr[cap[tr]]
+                reg = self._new_reg(self.random_state + k, p)
+                self._fit_reg(reg, X_cur[tr_used], y[tr_used], w[tr_used], X_cur[te], y[te], w[te])
+                oof[te] = reg.predict(X_cur[te])
+            sc = self._score(y, oof, w)
+            records.append({**{k: p[k] for k in self.tune_space}, "score": sc})
+            if best_s is None or self._better(sc, best_s):
+                best_p, best_s = p, sc
+            if self.verbose:
+                print(f"  调参 {i + 1}/{len(candidates)}：OOF {self.eval_metric.upper()} = {sc:.4f}"
+                      + ("（初始参数）" if i == 0 else ""), flush=True)
+        self.tuning.append({"layer": layer_index + 1, "best_score": best_s,
+                            "best_params": best_p, "trials": pd.DataFrame(records)})
+        return best_p
+
+    # ------------------------------------------------------------------
+    def fit(self, X, y, groups=None, stratify=None, sample_weight=None, site_ids=None,
+            X_val=None, y_val=None, w_val=None):
+        """
+        X, y           训练特征和目标（NaN 可直接保留）
+        groups         分折分组（推荐空间簇编号）
+        stratify       分折分层标签（推荐 IGBP）
+        sample_weight  逐行权重
+        site_ids       逐行站点 ID（用于 max_per_site）；不给则用 groups
+        X_val, y_val   可选：给了按验证集选层，否则按 OOF 分数
+        """
+        X = np.asarray(X, dtype=np.float32)
+        y = np.asarray(y, dtype=np.float32).ravel()
+        n, n_orig = X.shape
+        w = np.ones(n, np.float32) if sample_weight is None else np.asarray(sample_weight, np.float32)
+        has_val = X_val is not None and y_val is not None
+        if has_val:
+            X_val = np.asarray(X_val, dtype=np.float32)
+            y_val = np.asarray(y_val, dtype=np.float32).ravel()
+            w_val = np.ones(len(y_val), np.float32) if w_val is None else np.asarray(w_val, np.float32)
+        site_ids = site_ids if site_ids is not None else groups
+
+        folds = self._make_folds(X, y, groups, stratify)
+        self.folds = folds
+        self.keep_idx = None
+        self.tuning = []
+
+        best_score, best_n, bad = None, 0, 0
+        layers, fold_layers, history = [], [], []
+        X_cur, Xv_cur = X, X_val
+        params = dict(self.xgb_params)
+
+        for L in range(self.max_layers):
+            cap = self._cap_mask(site_ids, self.random_state + 7919 * L)
+            if self.verbose and cap is not None and L == 0:
+                print(f"每站最多 {self.max_per_site} 条：训练使用 {cap.sum():,} / {n:,} 条", flush=True)
+
+            if self.tune_trials and (L == 0 or self.retune_each_layer):
+                if self.verbose:
+                    print(f"Layer {L + 1}：动态调参（初始参数 + {self.tune_trials} 组随机参数）", flush=True)
+                params = self._tune(X_cur, y, w, folds, cap, L)
+
+            oof = np.zeros((n, self.n_estimators_per_layer), dtype=np.float32)
+            layer, fold_layer = [], []
+            importances = np.zeros(X_cur.shape[1])
+            for e in range(self.n_estimators_per_layer):
+                fold_models, best_iters = [], []
+                for k, (tr, te) in enumerate(folds):
+                    tr_used = tr if cap is None else tr[cap[tr]]
+                    reg = self._new_reg(self.random_state + 1000 * L + 100 * e + k, params)
+                    self._fit_reg(reg, X_cur[tr_used], y[tr_used], w[tr_used], X_cur[te], y[te], w[te])
+                    oof[te, e] = reg.predict(X_cur[te])
+                    fold_models.append(reg)
+                    best_iters.append(getattr(reg, "best_iteration", None))
+                    imp = getattr(reg, "feature_importances_", None)
+                    if imp is not None:
+                        importances += np.nan_to_num(np.asarray(imp, float))
+
+                if self.refit:
+                    iters = [b for b in best_iters if b is not None]
+                    n_trees = int(np.mean(iters)) + 1 if iters else None
+                    full = self._new_reg(self.random_state + 1000 * L + 100 * e + 99, params,
+                                         n_estimators=n_trees, early_stop=False)
+                    used = np.arange(n) if cap is None else np.flatnonzero(cap)
+                    self._fit_reg(full, X_cur[used], y[used], w[used])
+                    layer.append(full)
+                else:
+                    layer.append(fold_models)
+                fold_layer.append(fold_models if self.keep_fold_models else None)
+            layers.append(layer)
+            fold_layers.append(fold_layer)
+
+            # ---------- 第 1 层后：按 gain 重要性筛选原始特征 ----------
+            if L == 0:
+                imp = importances[:n_orig]
+                self.feature_importance = imp / imp.sum() if imp.sum() > 0 else np.full(n_orig, 1 / n_orig)
+                if self.feature_keep and self.feature_keep < 1:
+                    k_keep = max(1, int(np.ceil(self.feature_keep * n_orig)))
+                    self.keep_idx = np.sort(np.argsort(-self.feature_importance)[:k_keep])
+
+            # ---------- 本层分数 ----------
+            oof_score = self._score(y, oof.mean(axis=1), w)
+            if has_val:
+                v_out = self._layer_outputs(layer, Xv_cur)
+                score = self._score(y_val, v_out.mean(axis=1), w_val)
+            else:
+                score = oof_score
+            history.append({"layer": L + 1, "oof_score": oof_score,
+                            "val_score": score if has_val else np.nan, "n_features": X_cur.shape[1]})
+            if self.verbose:
+                metric = self.eval_metric.upper()
+                print(f"Training Layer {L + 1}", flush=True)
+                if has_val:
+                    print(f"Validation {metric}: {score:.4f}（OOF {metric}: {oof_score:.4f}）", flush=True)
+                else:
+                    print(f"Validation {metric}: {score:.4f}（按站点交叉验证，OOF）", flush=True)
+
+            if best_score is None or self._better(score, best_score):
+                best_score, best_n, bad = score, L + 1, 0
+                if self.verbose:
+                    print(f"✅ New best {self.eval_metric.upper()}: {best_score:.4f}", flush=True)
+            else:
+                bad += 1
+                if bad >= self.early_stopping_rounds:
+                    if self.verbose:
+                        print("Early stopping triggered.", flush=True)
+                    break
+
+            X_cur = self._next_input(X, oof)
+            if has_val:
+                Xv_cur = self._next_input(X_val, v_out)
+
+        self.layers = layers[:best_n]
+        self.fold_layers = fold_layers[:best_n]
+        self.best_score = best_score
+        self.history = pd.DataFrame(history)
+        if self.verbose:
+            print(f"保留 {best_n} 层，最优 {self.eval_metric.upper()} = {best_score:.4f}", flush=True)
+        return self
+
+    # ------------------------------------------------------------------
+    def predict(self, X, return_std=False):
+        X = np.asarray(X, dtype=np.float32)
+        X_cur, out, X_last = X, None, X
+        for layer in self.layers:
+            X_last = X_cur
+            out = self._layer_outputs(layer, X_cur)
+            X_cur = self._next_input(X, out)
+        mean = out.mean(axis=1)
+        if not return_std:
+            return mean
+        last = self.fold_layers[-1] if self.fold_layers else None
+        if not last or any(f is None for f in last):
+            raise ValueError("没有保存折模型，无法计算不确定性：训练时请设 keep_fold_models=True")
+        preds = np.column_stack([m.predict(X_last) for models in last for m in models])
+        return mean, preds.std(axis=1)
+
+    def best_params(self):
+        return [t["best_params"] for t in self.tuning]
+
+    def set_device(self, device):
+        """训练后切换预测设备：'cpu'、'cuda'、'cuda:1'。"""
+        self.use_gpu = device.startswith("cuda")
+        if ":" in device:
+            self.gpu_id = int(device.split(":")[1])
+        for layer in list(self.layers) + list(self.fold_layers):
+            for unit in layer:
+                if unit is None:
+                    continue
+                for m in (unit if isinstance(unit, list) else [unit]):
+                    m.set_params(device=device)
+        return self
+
+    def n_models(self):
+        return sum(len(u) if isinstance(u, list) else 1 for layer in self.layers for u in layer)
 
 # ============================================================================================================================================================
 # Function mode
