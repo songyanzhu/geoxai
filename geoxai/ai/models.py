@@ -240,7 +240,7 @@ class SmartForest4D:
         param_combos = self._get_param_combinations()
 
         for i in range(self.n_estimators_per_layer):
-            best_metric = float('inf')
+            best_metric = float('-inf') if self.eval_metric == 'r2' else float('inf')
             best_model = None
 
             for params in param_combos:
@@ -257,7 +257,8 @@ class SmartForest4D:
                 if X_val is not None:
                     preds_val = model.predict(X_val)
                     metric = self._evaluate(y_val, preds_val)
-                    if metric < best_metric:
+                    better = (metric > best_metric) if self.eval_metric == 'r2' else (metric < best_metric)
+                    if better:
                         best_metric = metric
                         best_model = model
                 else:
@@ -312,6 +313,10 @@ class SmartForest4D:
                         if self.verbose:
                             print("Early stopping triggered.")
                         break
+
+        # 训练结束：predict() 改用验证集上最优的层，而不是最后训练到的层
+        if self.best_model is not None:
+            self.layers = self.best_model
 
     def predict(self, X):
         X_current = self._prepare_input(X, apply_forget=True)
